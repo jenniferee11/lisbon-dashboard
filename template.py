@@ -86,3 +86,17 @@ monthly = df_filtered["month"].value_counts().reindex(month_order).reset_index()
 monthly.columns = ["month", "count"]
 fig3 = px.line(monthly, x="month", y="count", markers=True, labels={"month": "Month", "count": "Accidents"})
 st.plotly_chart(fig3, use_container_width=True)
+
+
+
+
+
+st.markdown("---")
+st.subheader("About this Dashboard")
+st.markdown("""
+Starting from a basic Streamlit template with a simple map, I extended it into a fully interactive dashboard for exploring Lisbon's 2023 road accident data. The dashboard includes three sidebar filters — weekday, severity, and hour of day — allowing users to narrow down accidents by any combination of these dimensions. The map displays accidents as color-coded markers (red for fatal, orange for serious, blue for minor), and three charts show accident patterns by hour, weekday, and month.
+
+**Key insights:** The most striking finding is that accidents are distributed across the entire city — there is no single safe area in Lisbon. Risk is everywhere. The hourly chart clearly shows a spike during the evening rush hour (16:00–19:00), suggesting that commuter traffic is the main driver of accidents. Interestingly, weekends show significantly fewer accidents than weekdays — which raises a broader question about car dependency: if fewer people drive on weekends, the data suggests the city could function with less car traffic overall.
+
+**What I learned:** The biggest challenges were setting up the deployment pipeline and understanding how filters connect to the underlying data. Building this taught me how geospatial data can tell stories that raw numbers alone cannot.
+""")
